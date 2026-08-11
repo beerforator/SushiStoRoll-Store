@@ -38,7 +38,7 @@ const galleryImages = [
   'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=280&h=200&fit=crop',
   'https://images.unsplash.com/photo-1553621042-f6e147245754?w=280&h=200&fit=crop',
   'https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=280&h=200&fit=crop',
-  'https://images.unsplash.com/photo-1611143669185-afc2245e3252?w=280&h=200&fit=crop',
+  // 'https://images.unsplash.com/photo-1611143669185-afc2245e3252?w=280&h=200&fit=crop',
   'https://images.unsplash.com/photo-1540648639573-8c848de23f0a?w=280&h=200&fit=crop',
   'https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=280&h=200&fit=crop',
 ]
