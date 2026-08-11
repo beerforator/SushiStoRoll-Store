@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon, MapPin, Phone, Clock, Mail, ChefHat, Fish, Truck } from '../components/Icons'
+import { useReveal } from '../hooks/useReveal.js'
 
 const uspCards = [
   {
@@ -45,24 +46,11 @@ const galleryImages = [
 export default function AboutPage() {
   const revealRef = useRef(null)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-          }
-        })
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    )
-
-    if (revealRef.current) {
-      revealRef.current.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
-    }
-
-    return () => observer.disconnect()
-  }, [])
+  // Тот же хук, что и в меню, вместо собственного IntersectionObserver:
+  // он проявляет блоки, уже попавшие во вьюпорт при монтировании, и держит
+  // таймаут-страховку. Своя реализация страховки не имела — если наблюдатель
+  // почему-то не присылал первое уведомление, страница оставалась пустой.
+  useReveal(revealRef)
 
   return (
     <main className="main-content main-content--full">

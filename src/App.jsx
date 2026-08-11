@@ -4,6 +4,7 @@ import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import CartPanel from './components/CartPanel.jsx'
 import Tentacles from './components/Tentacles.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 import HomePage from './pages/HomePage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import CartPage from './pages/CartPage.jsx'
@@ -33,13 +34,16 @@ export default function App() {
   const location = useLocation()
   const isCourier = location.pathname.startsWith('/courier')
 
-  if (isCourier) {
-    return (
-      <Routes>
-        <Route path="/courier" element={<CourierPage />} />
-      </Routes>
-    )
-  }
-
-  return <AppLayout />
+  return (
+    <>
+      <ScrollToTop />
+      {isCourier ? (
+        <Routes>
+          <Route path="/courier" element={<CourierPage />} />
+        </Routes>
+      ) : (
+        <AppLayout />
+      )}
+    </>
+  )
 }
