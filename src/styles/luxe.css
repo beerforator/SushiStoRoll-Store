@@ -910,6 +910,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+   display: none;
 }
 
 .promo__cta:hover { color: var(--accent-color, var(--kaki)); gap: 18px; }
